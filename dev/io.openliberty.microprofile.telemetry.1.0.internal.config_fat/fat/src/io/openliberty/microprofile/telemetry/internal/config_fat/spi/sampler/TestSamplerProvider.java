@@ -10,26 +10,26 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator;
+package io.openliberty.microprofile.telemetry.internal.config_fat.spi.sampler;
 
-import io.opentelemetry.context.propagation.TextMapPropagator;
 import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;
-import io.opentelemetry.sdk.autoconfigure.spi.ConfigurablePropagatorProvider;
+import io.opentelemetry.sdk.autoconfigure.spi.traces.ConfigurableSamplerProvider;
+import io.opentelemetry.sdk.trace.samplers.Sampler;
 
-public class TestPropagatorProvider implements ConfigurablePropagatorProvider {
+public class TestSamplerProvider implements ConfigurableSamplerProvider {
 
-    public static final String NAME = "test-propagator";
+    public static final String NAME = "test-sampler";
+
+    /** {@inheritDoc} */
+    @Override
+    public Sampler createSampler(ConfigProperties config) {
+        return new TestSampler();
+    }
 
     /** {@inheritDoc} */
     @Override
     public String getName() {
         return NAME;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public TextMapPropagator getPropagator(ConfigProperties arg0) {
-        return new TestPropagator();
     }
 
 }

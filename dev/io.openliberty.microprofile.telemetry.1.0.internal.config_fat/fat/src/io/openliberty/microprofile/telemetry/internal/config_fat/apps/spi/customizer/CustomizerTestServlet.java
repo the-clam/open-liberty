@@ -10,26 +10,23 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.customizer;
+package io.openliberty.microprofile.telemetry.internal.config_fat.apps.spi.customizer;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
+import javax.inject.Inject;
+import javax.servlet.annotation.WebServlet;
 
 import org.junit.Test;
 
-import componenttest.annotation.SkipForRepeat;
 import componenttest.app.FATServlet;
-import componenttest.rules.repeater.MicroProfileActions;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporter;
-import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporter;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.sdk.resources.Resource;
 import io.opentelemetry.sdk.trace.data.SpanData;
-import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 
 /**
  * Test that an AutoConfigurationCustomizerProvider can be provided by the SPI

@@ -10,23 +10,21 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.resource;
+package io.openliberty.microprofile.telemetry.internal.config_fat.spi.resource;
 
-import static io.openliberty.microprofile.telemetry.internal_fat.common.SpanDataMatcher.hasResourceAttribute;
+import static io.openliberty.microprofile.telemetry.internal.config_fat.common.SpanDataMatcher.hasResourceAttribute;
 import static org.junit.Assert.assertThat;
+
+import javax.inject.Inject;
+import javax.servlet.annotation.WebServlet;
 
 import org.junit.Test;
 
-import componenttest.annotation.SkipForRepeat;
 import componenttest.app.FATServlet;
-import componenttest.rules.repeater.MicroProfileActions;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporter;
-import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporter;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.sdk.trace.data.SpanData;
-import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 
 /**
  * Test that the Resource can be customized via SPI

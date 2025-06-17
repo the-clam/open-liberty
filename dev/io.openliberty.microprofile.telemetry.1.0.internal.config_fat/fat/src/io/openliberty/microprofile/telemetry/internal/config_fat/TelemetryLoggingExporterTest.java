@@ -7,15 +7,15 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat;
+package io.openliberty.microprofile.telemetry.internal.config_fat;
 
 import static com.ibm.websphere.simplicity.ShrinkHelper.DeployOptions.SERVER_ONLY;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
@@ -26,12 +26,10 @@ import com.ibm.websphere.simplicity.ShrinkHelper;
 
 import componenttest.annotation.Server;
 import componenttest.custom.junit.runner.FATRunner;
-import componenttest.rules.repeater.FeatureReplacementAction;
-import componenttest.rules.repeater.MicroProfileActions;
 import componenttest.rules.repeater.RepeatTests;
 import componenttest.topology.impl.LibertyServer;
 import componenttest.topology.utils.FATServletClient;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.telemetry.LoggingServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.apps.telemetry.LoggingServlet;
 import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
 
 @RunWith(FATRunner.class)
@@ -52,7 +50,7 @@ public class TelemetryLoggingExporterTest extends FATServletClient {
                         .addClasses(LoggingServlet.class)
                         //Use logging exporter
                         .addAsResource(new StringAsset("otel.sdk.disabled=false\notel.traces.exporter=logging"),
-                        "META-INF/microprofile-config.properties");
+                                       "META-INF/microprofile-config.properties");
 
         ShrinkHelper.exportAppToServer(server, app, SERVER_ONLY);
         server.startServer();

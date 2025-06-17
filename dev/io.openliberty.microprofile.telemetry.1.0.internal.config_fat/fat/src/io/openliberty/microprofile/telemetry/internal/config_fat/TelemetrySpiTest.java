@@ -10,7 +10,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat;
+package io.openliberty.microprofile.telemetry.internal.config_fat;
 
 import static com.ibm.websphere.simplicity.ShrinkHelper.DeployOptions.SERVER_ONLY;
 
@@ -31,20 +31,20 @@ import componenttest.custom.junit.runner.FATRunner;
 import componenttest.rules.repeater.RepeatTests;
 import componenttest.topology.impl.LibertyServer;
 import componenttest.topology.utils.FATServletClient;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.customizer.CustomizerTestServlet;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.customizer.TestCustomizer;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.exporter.ExporterTestServlet;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator.PropagatorTestServlet;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator.TestPropagator;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator.TestPropagatorProvider;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.resource.ResourceTestServlet;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.resource.TestResourceProvider;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.sampler.SamplerTestServlet;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.sampler.TestSampler;
-import io.openliberty.microprofile.telemetry.internal_fat.apps.spi.sampler.TestSamplerProvider;
-import io.openliberty.microprofile.telemetry.internal_fat.common.TestSpans;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporter;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporterProvider;
+import io.openliberty.microprofile.telemetry.internal.config_fat.apps.spi.customizer.CustomizerTestServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.apps.spi.customizer.TestCustomizer;
+import io.openliberty.microprofile.telemetry.internal.config_fat.apps.spi.exporter.ExporterTestServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.TestSpans;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporter;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporterProvider;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.propagator.PropagatorTestServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.propagator.TestPropagator;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.propagator.TestPropagatorProvider;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.resource.ResourceTestServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.resource.TestResourceProvider;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.sampler.SamplerTestServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.sampler.TestSampler;
+import io.openliberty.microprofile.telemetry.internal.config_fat.spi.sampler.TestSamplerProvider;
 import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
 import io.openliberty.microprofile.telemetry.internal_fat.shared.spans.AbstractSpanMatcher;
 import io.opentelemetry.sdk.autoconfigure.spi.AutoConfigurationCustomizerProvider;

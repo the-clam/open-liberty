@@ -10,7 +10,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.resource;
+package io.openliberty.microprofile.telemetry.internal.config_fat.spi.resource;
 
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.sdk.autoconfigure.spi.ConfigProperties;

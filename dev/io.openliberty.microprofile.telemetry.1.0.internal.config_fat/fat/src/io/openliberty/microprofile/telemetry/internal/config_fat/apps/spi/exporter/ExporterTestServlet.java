@@ -10,25 +10,23 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.exporter;
+package io.openliberty.microprofile.telemetry.internal.config_fat.apps.spi.exporter;
 
-import static io.openliberty.microprofile.telemetry.internal_fat.common.SpanDataMatcher.hasAttribute;
-import static io.openliberty.microprofile.telemetry.internal_fat.common.SpanDataMatcher.hasName;
+import static io.openliberty.microprofile.telemetry.internal.config_fat.common.SpanDataMatcher.hasAttribute;
+import static io.openliberty.microprofile.telemetry.internal.config_fat.common.SpanDataMatcher.hasName;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import javax.inject.Inject;
+import javax.servlet.annotation.WebServlet;
 
 import org.junit.Test;
 
-import componenttest.annotation.SkipForRepeat;
 import componenttest.app.FATServlet;
-import componenttest.rules.repeater.MicroProfileActions;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporter;
-import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporter;
 import io.opentelemetry.api.common.AttributeKey;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.sdk.trace.data.SpanData;
-import javax.inject.Inject;
-import javax.servlet.annotation.WebServlet;
 
 /**
  * Basic test of a span exporter

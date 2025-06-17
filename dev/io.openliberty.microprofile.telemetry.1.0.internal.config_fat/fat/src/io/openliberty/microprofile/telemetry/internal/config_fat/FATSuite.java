@@ -28,8 +28,10 @@ import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryAction
                 TelemetryConfigNullTest.class,
                 TelemetryConfigRuntimeModeIgnoresMPConfigTest.class,
                 TelemetryDisabledProvidersTest.class,
-                TelemetryMisconfigTest.class,
                 TelemetryDisabledTest.class,
+                TelemetryLoggingExporterTest.class,
+                TelemetryMisconfigTest.class,
+                TelemetrySpiTest.class,
 
 })
 public class FATSuite {

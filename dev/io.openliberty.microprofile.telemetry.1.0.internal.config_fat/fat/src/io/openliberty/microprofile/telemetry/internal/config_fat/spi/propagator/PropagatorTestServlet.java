@@ -10,9 +10,9 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator;
+package io.openliberty.microprofile.telemetry.internal.config_fat.spi.propagator;
 
-import static io.openliberty.microprofile.telemetry.internal_fat.common.SpanDataMatcher.hasAttribute;
+import static io.openliberty.microprofile.telemetry.internal.config_fat.common.SpanDataMatcher.hasAttribute;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
@@ -22,19 +22,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import org.junit.Test;
-
-import componenttest.annotation.SkipForRepeat;
-import componenttest.app.FATServlet;
-import componenttest.rules.repeater.MicroProfileActions;
-import io.openliberty.microprofile.telemetry.internal_fat.common.TestSpans;
-import io.openliberty.microprofile.telemetry.internal_fat.common.spanexporter.InMemorySpanExporter;
-import io.openliberty.microprofile.telemetry.internal_fat.shared.TelemetryActions;
-import io.opentelemetry.api.baggage.Baggage;
-import io.opentelemetry.api.common.AttributeKey;
-import io.opentelemetry.api.trace.Span;
-import io.opentelemetry.context.Scope;
-import io.opentelemetry.sdk.trace.data.SpanData;
 import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +32,17 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
+
+import org.junit.Test;
+
+import componenttest.app.FATServlet;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.TestSpans;
+import io.openliberty.microprofile.telemetry.internal.config_fat.common.spanexporter.InMemorySpanExporter;
+import io.opentelemetry.api.baggage.Baggage;
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.context.Scope;
+import io.opentelemetry.sdk.trace.data.SpanData;
 
 /**
  * Test that a custom Propagator can be provided.

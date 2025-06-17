@@ -10,7 +10,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package io.openliberty.microprofile.telemetry.internal_fat.apps.spi.propagator;
+package io.openliberty.microprofile.telemetry.internal.config_fat.spi.propagator;
 
 import static java.util.Collections.unmodifiableList;
 
