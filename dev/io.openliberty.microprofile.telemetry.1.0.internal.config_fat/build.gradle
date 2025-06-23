@@ -11,12 +11,6 @@
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 apply from: '../wlp-gradle/subprojects/maven-central-mirror.gradle'
-	
-configurations {
-  shimLibs
-  shimLibs129
-  shimLibs139
-}
 
 //This task has a different output directory to the generic one in fat.gradle
 task copyTestFeatureBundles {
@@ -37,29 +31,10 @@ task copyTestFeatureBundles {
 dependencies {
   requiredLibs project(':io.openliberty.mpTelemetry.1.0.thirdparty')
   requiredLibs project(':io.openliberty.microprofile.telemetry.internal_fat.common')
-  shimLibs 'io.opentelemetry:opentelemetry-opentracing-shim:1.19.0-alpha'
-  shimLibs129 'io.opentelemetry:opentelemetry-opentracing-shim:1.29.0'
-  shimLibs139 'io.opentelemetry:opentelemetry-opentracing-shim:1.39.0'
 }
 
-task addShimLibs(type: Copy) {
-  from configurations.shimLibs
-  into new File(autoFvtDir, 'lib/shim')
-}
-
-task addShimLibs129(type: Copy) {
-  from configurations.shimLibs129
-  into new File(autoFvtDir, 'lib/shim129')
-}
-task addShimLibs139(type: Copy) {
-  from configurations.shimLibs139
-  into new File(autoFvtDir, 'lib/shim139')
-}
 
 addRequiredLibraries {
   dependsOn copyTestFeatureBundles
-  dependsOn addShimLibs
-  dependsOn addShimLibs129
-  dependsOn addShimLibs139
   dependsOn addJakartaTransformer
 }
