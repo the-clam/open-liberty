@@ -1981,8 +1981,7 @@ public class DataJPATestServlet extends FATServlet {
 
         PurchaseOrder o;
         assertNotNull(o = map.get("testEntitiesAsParameters-Customer1"));
-        if (skipForHibernate("https://github.com/OpenLiberty/open-liberty/issues/33206")) {
-            // Hibernate does not see the update that was made on another thread
+        if (skipForHibernate("https://github.com/OpenLiberty/open-liberty/issues/33232")) {
             ; //TODO remove skip when fixed in Hibernate or Liberty
         } else {
             assertEquals(11.99f, o.total, 0.001f);
