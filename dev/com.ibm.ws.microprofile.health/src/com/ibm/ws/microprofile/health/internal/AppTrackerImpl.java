@@ -101,7 +101,7 @@ public class AppTrackerImpl implements AppTracker, ApplicationStateListener {
             Tr.debug(tc, "AppTrackerImpl is deactivated");
     }
 
-    @Reference(name = "configAdmin")
+    @Reference(name = "configAdmin") 
     protected void setConfigAdmin(ConfigurationAdmin configAdmin) {
         this.configAdmin = configAdmin;
 
